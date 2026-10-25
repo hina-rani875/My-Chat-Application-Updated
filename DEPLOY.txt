@@ -1,0 +1,17 @@
+GLIDE-CHAT v21 — HOW TO DEPLOY (2 minutes)
+
+1) Firebase Console -> Firestore Database -> Rules
+   Paste the WHOLE text of RULES.txt -> Publish.
+   (Make sure a Firestore Database exists: Standard edition, location us-central, then Create.)
+
+2) Netlify (app.netlify.com/drop):
+   Drag and drop this "gupshup" FOLDER (not the zip).
+   To update an existing site: Site -> Deploys -> drop the folder in the "drag and drop" area at the bottom.
+
+3) Firebase -> Authentication -> Settings -> Authorized domains
+   Add your Netlify address (e.g. abc.netlify.app).
+
+4) Open the site and press Ctrl+Shift+R.
+   "Glide-Chat v21" must be written at the bottom-left. If it is not, the old version is still running.
+
+To invite a friend: after login, tap "Send link" at the top of your room.

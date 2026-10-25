@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Glide-Chat Lite — Real-time Chat</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+CiAgPHRpdGxlPkdsaWRlLUNoYXQ8L3RpdGxlPgogIDxkZWZzPgogICAgPGxpbmVhckdyYWRpZW50IGlkPSJnIiB4MT0iMCIgeTE9IjAiIHgyPSIxIiB5Mj0iMSI+CiAgICAgIDxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iI2ZmOGEzZCIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjAuNTUiIHN0b3AtY29sb3I9IiNmZjRkNmQiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjOGIzZGZmIi8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogIDwvZGVmcz4KICA8cmVjdCB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHJ4PSIxNiIgZmlsbD0idXJsKCNnKSIvPgogIDxwYXRoIGQ9Ik0zMiAxMWMtMTEgMC0yMCA3LjcwMC0yMCAxNy4zMDAgMCA0LjgwMCAyLjMwMCA5LjIwMCA2IDEyLjIwMC0uMyAzLjMwMC0xLjcwMCA1LjkwMC0zLjkwMCA4IDQuNTAwLS4yIDguMTAwLTEuNzAwIDEwLjgwMC00IDIuMzAwLjYgNC42MDAuOSA3LjEwMC45IDExIDAgMjAtNy43MDAgMjAtMTcuMjAwUzQzIDExIDMyIDExeiIgZmlsbD0iI2ZmZiIvPgogIDx0ZXh0IHg9IjMyIiB5PSIzOCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9IkFyaWFsLEhlbHZldGljYSxzYW5zLXNlcmlmIiBmb250LXdlaWdodD0iODAwIiBmb250LXNpemU9IjI2IiBmaWxsPSIjZmY0ZDZkIj5HPC90ZXh0Pgo8L3N2Zz4K" />
+  <link rel="alternate icon" href="favicon.svg?v=20" />
+  <link rel="apple-touch-icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+CiAgPHRpdGxlPkdsaWRlLUNoYXQ8L3RpdGxlPgogIDxkZWZzPgogICAgPGxpbmVhckdyYWRpZW50IGlkPSJnIiB4MT0iMCIgeTE9IjAiIHgyPSIxIiB5Mj0iMSI+CiAgICAgIDxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iI2ZmOGEzZCIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjAuNTUiIHN0b3AtY29sb3I9IiNmZjRkNmQiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjOGIzZGZmIi8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogIDwvZGVmcz4KICA8cmVjdCB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHJ4PSIxNiIgZmlsbD0idXJsKCNnKSIvPgogIDxwYXRoIGQ9Ik0zMiAxMWMtMTEgMC0yMCA3LjcwMC0yMCAxNy4zMDAgMCA0LjgwMCAyLjMwMCA5LjIwMCA2IDEyLjIwMC0uMyAzLjMwMC0xLjcwMCA1LjkwMC0zLjkwMCA4IDQuNTAwLS4yIDguMTAwLTEuNzAwIDEwLjgwMC00IDIuMzAwLjYgNC42MDAuOSA3LjEwMC45IDExIDAgMjAtNy43MDAgMjAtMTcuMjAwUzQzIDExIDMyIDExeiIgZmlsbD0iI2ZmZiIvPgogIDx0ZXh0IHg9IjMyIiB5PSIzOCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9IkFyaWFsLEhlbHZldGljYSxzYW5zLXNlcmlmIiBmb250LXdlaWdodD0iODAwIiBmb250LXNpemU9IjI2IiBmaWxsPSIjZmY0ZDZkIj5HPC90ZXh0Pgo8L3N2Zz4K" />
+  <link rel="stylesheet" href="lite.css?v=1" />
+</head>
+<body>
+  <!-- ===== Join screen ===== -->
+  <main id="join" class="join">
+    <i class="orb o1"></i><i class="orb o2"></i>
+    <form id="joinForm" class="card" autocomplete="off">
+      <div class="logo">G</div>
+      <h1>Glide-Chat Lite</h1>
+      <p class="sub">No login, no signup. Enter your name and a <b>room code</b>, then send the same code to your friend. You will both chat in the same room in real time 💬</p>
+      <label>Your name<input id="nameIn" maxlength="24" placeholder="e.g. Hina" required /></label>
+      <label>Room code<input id="roomIn" maxlength="30" placeholder="e.g. friends123" required /></label>
+      <p id="joinErr" class="err"></p>
+      <button class="go" type="submit">Start chatting →</button>
+      <p class="tiny">Anyone who knows the room code can join. Use a long, hard-to-guess code (like <code>hina-ali-7342</code>).</p>
+    </form>
+  </main>
+
+  <!-- ===== Chat screen ===== -->
+  <section id="chat" class="chat hidden">
+    <header class="top">
+      <button id="leaveBtn" class="ic" title="Leave">←</button>
+      <div class="ttl"><b id="roomTitle">room</b><small id="status" class="st wait">connecting…</small></div>
+      <button id="shareBtn" class="pill" title="Send the link to a friend">🔗 Invite</button>
+      <button id="soundBtn" class="ic" title="Sound">🔔</button>
+    </header>
+    <div id="banner" class="banner hidden"></div>
+    <div id="msgs" class="msgs"></div>
+    <form id="msgForm" class="composer" autocomplete="off">
+      <input id="msgIn" maxlength="1000" placeholder="Type a message…" />
+      <button id="sendBtn" class="send" type="submit" title="Send">➤</button>
+    </form>
+  </section>
+
+  <div id="toast" class="toast"></div>
+  <script type="module" src="lite.js?v=1"></script>
+</body>
+</html>

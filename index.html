@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Glide-Chat — Real-time Chat</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+CiAgPHRpdGxlPkdsaWRlLUNoYXQ8L3RpdGxlPgogIDxkZWZzPgogICAgPGxpbmVhckdyYWRpZW50IGlkPSJnIiB4MT0iMCIgeTE9IjAiIHgyPSIxIiB5Mj0iMSI+CiAgICAgIDxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iI2ZmOGEzZCIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjAuNTUiIHN0b3AtY29sb3I9IiNmZjRkNmQiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjOGIzZGZmIi8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogIDwvZGVmcz4KICA8cmVjdCB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHJ4PSIxNiIgZmlsbD0idXJsKCNnKSIvPgogIDxwYXRoIGQ9Ik0zMiAxMWMtMTEgMC0yMCA3LjcwMC0yMCAxNy4zMDAgMCA0LjgwMCAyLjMwMCA5LjIwMCA2IDEyLjIwMC0uMyAzLjMwMC0xLjcwMCA1LjkwMC0zLjkwMCA4IDQuNTAwLS4yIDguMTAwLTEuNzAwIDEwLjgwMC00IDIuMzAwLjYgNC42MDAuOSA3LjEwMC45IDExIDAgMjAtNy43MDAgMjAtMTcuMjAwUzQzIDExIDMyIDExeiIgZmlsbD0iI2ZmZiIvPgogIDx0ZXh0IHg9IjMyIiB5PSIzOCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9IkFyaWFsLEhlbHZldGljYSxzYW5zLXNlcmlmIiBmb250LXdlaWdodD0iODAwIiBmb250LXNpemU9IjI2IiBmaWxsPSIjZmY0ZDZkIj5HPC90ZXh0Pgo8L3N2Zz4K" />
+  <link rel="alternate icon" href="favicon.svg?v=20" />
+  <link rel="apple-touch-icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+CiAgPHRpdGxlPkdsaWRlLUNoYXQ8L3RpdGxlPgogIDxkZWZzPgogICAgPGxpbmVhckdyYWRpZW50IGlkPSJnIiB4MT0iMCIgeTE9IjAiIHgyPSIxIiB5Mj0iMSI+CiAgICAgIDxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iI2ZmOGEzZCIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjAuNTUiIHN0b3AtY29sb3I9IiNmZjRkNmQiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjOGIzZGZmIi8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogIDwvZGVmcz4KICA8cmVjdCB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHJ4PSIxNiIgZmlsbD0idXJsKCNnKSIvPgogIDxwYXRoIGQ9Ik0zMiAxMWMtMTEgMC0yMCA3LjcwMC0yMCAxNy4zMDAgMCA0LjgwMCAyLjMwMCA5LjIwMCA2IDEyLjIwMC0uMyAzLjMwMC0xLjcwMCA1LjkwMC0zLjkwMCA4IDQuNTAwLS4yIDguMTAwLTEuNzAwIDEwLjgwMC00IDIuMzAwLjYgNC42MDAuOSA3LjEwMC45IDExIDAgMjAtNy43MDAgMjAtMTcuMjAwUzQzIDExIDMyIDExeiIgZmlsbD0iI2ZmZiIvPgogIDx0ZXh0IHg9IjMyIiB5PSIzOCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9IkFyaWFsLEhlbHZldGljYSxzYW5zLXNlcmlmIiBmb250LXdlaWdodD0iODAwIiBmb250LXNpemU9IjI2IiBmaWxsPSIjZmY0ZDZkIj5HPC90ZXh0Pgo8L3N2Zz4K" />
+  <meta name="theme-color" content="#ff4d6d" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <meta name="gs-version" content="v21" />
+  <link rel="stylesheet" href="style.css?v=14" />
+</head>
+<body>
+
+  <!-- ===================== LANDING PAGE ===================== -->
+  <div id="landing">
+    <div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div>
+
+    <header class="nav">
+      <div class="logo"><span class="logo-mark">G</span> Glide-Chat</div>
+      <nav class="nav-links">
+        <a href="#features">Features</a>
+        <a href="#how">How it works</a>
+      </nav>
+      <div class="nav-actions">
+        <button class="btn ghost" id="openLogin">Login</button>
+        <button class="btn primary" id="openSignup">Sign up</button>
+      </div>
+    </header>
+
+    <section class="hero">
+      <div class="hero-text">
+        <span class="pill">⚡ Real-time • Secure • Free</span>
+        <h1>Talk freely, <span class="grad">truly real-time.</span></h1>
+        <p>Glide-Chat is a fast and beautiful chat app. Create an account, share a link with friends and instantly send messages, photos and emojis — everything live, with no refresh.</p>
+        <div class="hero-cta">
+          <button class="btn primary big" id="heroSignup">Get started →</button>
+          <button class="btn ghost big" id="heroLogin">I already have an account</button>
+        </div>
+        <div class="stats">
+          <div><b>0 ms</b><span>feels instant</span></div>
+          <div><b>100%</b><span>live sync</span></div>
+          <div><b>📸</b><span>photo sharing</span></div>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="phone">
+          <div class="phone-top">
+            <div class="mini-av">H</div>
+            <div><b>Hina</b><small>● online</small></div>
+          </div>
+          <div class="phone-body">
+            <div class="bub them d1">Is the ChatApp project ready? 👀</div>
+            <div class="bub me d2">Yes! I built Glide-Chat 🚀</div>
+            <div class="bub them d3">Wow, is it running in real time?</div>
+            <div class="bub me d4">Look, you just got it ✨</div>
+            <div class="typing d5"><i></i><i></i><i></i></div>
+          </div>
+        </div>
+        <div class="float-card fc1">🔒 Secure login</div>
+        <div class="float-card fc2">🖼️ Photo share</div>
+      </div>
+    </section>
+
+    <section id="features" class="section">
+      <h2>Why <span class="grad">Glide-Chat?</span></h2>
+      <div class="grid">
+        <div class="card"><div class="ic">⚡</div><h3>Instant messages</h3><p>Messages sync live on both sides with Firebase Firestore.</p></div>
+        <div class="card"><div class="ic">🔐</div><h3>Secure auth</h3><p>Sign up and log in with email + password, powered by Firebase Authentication.</p></div>
+        <div class="card"><div class="ic">🖼️</div><h3>Photo sharing</h3><p>Profile photos and chat images upload quickly with Cloudinary.</p></div>
+        <div class="card"><div class="ic">🟢</div><h3>Online status</h3><p>See who is online and when they were last seen.</p></div>
+        <div class="card"><div class="ic">✍️</div><h3>Typing indicator</h3><p>You see live when the other person is typing.</p></div>
+        <div class="card"><div class="ic">📱</div><h3>Mobile friendly</h3><p>Phone, tablet and laptop — a clean layout on every screen.</p></div>
+      </div>
+    </section>
+
+    <section id="how" class="section">
+      <h2>Start chatting in <span class="grad">3 steps</span></h2>
+      <div class="steps">
+        <div class="step"><span>1</span><h3>Sign up</h3><p>Enter your name, email and password.</p></div>
+        <div class="step"><span>2</span><h3>Invite friends</h3><p>Share your room link with anyone.</p></div>
+        <div class="step"><span>3</span><h3>Chat</h3><p>Type a message, send an emoji, photo or voice note.</p></div>
+      </div>
+      <div style="text-align:center;margin-top:36px">
+        <button class="btn primary big" id="bottomSignup">Create a free account</button>
+      </div>
+    </section>
+
+    <footer class="footer">Made with ❤️ from Hina Rani • HTML · CSS · JS · Firebase · Cloudinary</footer>
+  </div>
+
+  <!-- ===================== AUTH MODAL ===================== -->
+  <div id="authModal" class="modal hidden">
+    <div class="modal-card">
+      <button class="close" id="closeModal" aria-label="Close">✕</button>
+      <div class="tabs">
+        <button class="tab active" id="tabLogin">Login</button>
+        <button class="tab" id="tabSignup">Sign up</button>
+      </div>
+
+      <form id="authForm" autocomplete="on" novalidate>
+        <div id="signupOnly">
+          <label class="avatar-pick">
+            <div id="avatarPreview" class="avatar-preview">📷</div>
+            <span>Profile photo (optional)</span>
+            <input type="file" id="avatarInput" accept="image/*" hidden />
+          </label>
+          <div class="field">
+            <label for="nameInput">Full name</label>
+            <input id="nameInput" type="text" placeholder="Enter your name" autocomplete="name" />
+          </div>
+        </div>
+        <div class="field">
+          <label for="emailInput">Email</label>
+          <input id="emailInput" type="email" placeholder="you@example.com" autocomplete="email" />
+        </div>
+        <div class="field">
+          <label for="passInput">Password</label>
+          <input id="passInput" type="password" placeholder="At least 6 characters" autocomplete="current-password" />
+        </div>
+        <div id="forgotRow" class="forgot-row"><button type="button" id="forgotBtn" class="link-btn">Forgot password?</button></div>
+        <p id="authError" class="auth-error"></p>
+        <button class="btn primary full" id="authSubmit" type="submit">Login</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ===================== CHAT APP ===================== -->
+  <div id="app" class="hidden">
+    <div class="app-bg"><i class="orb o1"></i><i class="orb o2"></i><i class="orb o3"></i></div>
+
+    <!-- Left rail: navigation, Logout at the bottom -->
+    <nav class="rail">
+      <div class="rail-logo">G</div>
+      <div class="rail-nav">
+        <button class="rail-btn active" id="tabAll" title="Chats"><span class="ri">💬</span><b>Chats</b></button>
+        <button class="rail-btn" id="tabStatus" title="Status"><span class="ri">✨</span><b>Status</b></button>
+        <button class="rail-btn gift" id="inviteBtn" title="Invite a friend"><span class="ri">🎁</span><b>Invite</b></button>
+      </div>
+      <div class="rail-bottom">
+        <button class="rail-btn" id="settingsBtn" title="Settings"><span class="ri">⚙️</span><b>Settings</b></button>
+        <button class="rail-btn logout" id="logoutBtn" title="Logout"><span class="ri">⏻</span><b>Logout</b></button>
+      </div>
+    </nav>
+
+    <!-- Middle: profile, search, online friends, list -->
+    <aside id="sidebar" class="list-pane">
+      <div class="profile-card">
+        <div id="meAvatar"></div>
+        <div class="me-info">
+          <span class="hello">Hello 👋</span>
+          <b id="meName">—</b>
+          <small id="mePhone" class="me-phone">● online</small>
+        </div>
+      </div>
+
+      <div class="pane-title"><h2 id="paneTitle">Chats</h2><span id="paneCount" class="count">0</span>
+        <div class="kebab-wrap">
+          <button class="kebab" id="paneMenuBtn" title="Menu">⋮</button>
+          <div id="paneMenu" class="dropdown hidden">
+            <button data-act="room">🌐 New room / join with code</button>
+            <button data-act="group">👥 New group</button>
+            <button data-act="community">📢 New community</button>
+            <button data-act="status">✨ Post a status</button>
+            <button data-act="fav">⭐ Favourites</button>
+            <button data-act="arch">🗂 Archived</button>
+            <button data-act="ai">🤖 Glide-Chat AI</button>
+            <button data-act="qr">🔳 My QR code</button>
+            <button data-act="settings">⚙️ Settings</button>
+            <button data-act="help">❓ Help</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="search-row">
+        <div class="search-box"><span>🔍</span><input id="searchInput" type="text" placeholder="Search name or room…" /></div>
+        <button class="add-btn" id="addRoomBtn" title="New room / join with code">＋</button>
+      </div>
+      <div class="filter-row" id="filterRow">
+        <button class="chip active" data-f="all">💬 All</button>
+        <button class="chip" data-f="fav">⭐ Favourites</button>
+        <button class="chip" data-f="arch">🗂 Archived</button>
+      </div>
+
+      <div id="onlineStrip" class="online-strip hidden">
+        <div class="strip-label"><i class="live-dot"></i> Online now</div>
+        <div id="onlineRow" class="online-row"></div>
+      </div>
+
+      <div id="userList" class="user-list"></div>
+      <button class="diag-btn" id="diagBtn" title="Check internet / Firestore">🩺 Connection check</button>
+      <div class="ver">Glide-Chat v21</div>
+    </aside>
+
+    <!-- Right: conversation -->
+    <main id="chatPane" class="chat-pane">
+      <div id="emptyState" class="empty">
+        <div class="empty-art">
+          <span class="eb eb1">How are you? 👋</span>
+          <span class="eb eb2">Doing great! 🚀</span>
+          <span class="eb eb3">Let's chat ✨</span>
+        </div>
+        <h2>Welcome to Glide-Chat!</h2>
+        <p>To start chatting, open your room on the left, or invite a friend with a link.</p>
+        <button class="invite-cta" id="inviteCta">🎁 Invite a friend</button>
+      </div>
+
+      <div id="chatView" class="chat-view hidden">
+        <div class="chat-head">
+          <button class="icon-btn back" id="backBtn">←</button>
+          <div id="peerAvatar"></div>
+          <div class="peer-info"><b id="peerName">—</b><small id="peerStatus">—</small></div>
+          <button type="button" class="hidden" id="headInvite" title="Send this room's link to a friend">🔗 Send link</button>
+          <div class="head-actions">
+            <button type="button" class="hbtn" id="callBtn" title="Voice call">📞</button>
+            <button type="button" class="hbtn" id="vcallBtn" title="Video call">📹</button>
+            <button type="button" class="hbtn" id="favBtn" title="Favourite">☆</button>
+            <button type="button" class="hbtn" id="archBtn">🗂</button>
+            <button type="button" class="hbtn" id="lockBtn" title="Chat lock">🔓</button>
+            <div class="kebab-wrap">
+              <button type="button" class="hbtn" id="moreBtn" title="More options">⋮</button>
+              <div id="headMenu" class="dropdown right hidden">
+                <button id="mShare" class="hidden">🔗 Share room link</button>
+                <button id="mClear">🧹 Clear chat</button>
+                <button id="mDelete">🗑 Delete chat</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div id="chatSearch" class="chat-search hidden"><span>🔍</span><input id="csInput" type="text" placeholder="Search in this chat…" /><small id="csCount"></small><button type="button" id="csClose" aria-label="Close search">✕</button></div>
+        <div id="chatBanner" class="chat-banner hidden"></div>
+        <div id="messages" class="messages"></div>
+
+        <div id="emojiPanel" class="emoji-panel hidden"></div>
+
+        <div id="replyBar" class="reply-bar hidden"><div class="rb-txt"><b id="replyName"></b><span id="replyText"></span></div><button type="button" id="replyX" aria-label="Cancel reply">✕</button></div>
+        <div id="plusMenu" class="plus-menu hidden">
+          <button type="button" data-p="poll">📊 <span>Poll</span></button>
+          <button type="button" data-p="sticker">😎 <span>Stickers</span></button>
+          <button type="button" data-p="loc">📍 <span>Location</span></button>
+          <button type="button" data-p="photo">🖼️ <span>Photo</span></button>
+          <button type="button" data-p="search">🔍 <span>Search chat</span></button>
+        </div>
+        <form id="msgForm" class="composer" autocomplete="off">
+          <button type="button" class="icon-btn" id="emojiBtn" title="Emoji">😊</button>
+          <button type="button" class="icon-btn" id="attachBtn" title="Photo">📎</button>
+          <button type="button" class="icon-btn" id="plusBtn" title="More: poll, stickers, location, search">＋</button>
+          <input type="file" id="imgInput" accept="image/*" hidden />
+          <input id="msgInput" type="text" placeholder="Type a message…" />
+          <button type="button" class="icon-btn hidden" id="micCancel" title="Cancel">🗑</button>
+          <button type="button" class="icon-btn mic" id="micBtn" title="Voice message">🎤</button>
+          <button type="submit" class="send-btn" id="sendBtn" title="Send">➤</button>
+        </form>
+      </div>
+    </main>
+  </div>
+
+  <!-- PIN modal -->
+  <div id="pinModal" class="modal chat-modal hidden">
+    <div class="modal-card small">
+      <h3 class="modal-title" id="pinTitle">🔒</h3>
+      <p class="pin-sub" id="pinSub"></p>
+      <form id="pinForm" autocomplete="off">
+        <input id="pinInput" class="pin-input" type="password" inputmode="numeric" maxlength="6" placeholder="••••" />
+        <p id="pinError" class="auth-error"></p>
+        <div class="row-btns">
+          <button type="button" class="btn ghost full" id="pinCancel">Cancel</button>
+          <button type="submit" class="btn primary full">OK</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Room modal -->
+  <div id="roomModal" class="modal chat-modal hidden">
+    <div class="modal-card small">
+      <button class="close" id="roomClose" aria-label="Close">✕</button>
+      <h3 class="modal-title">🌐 Join a room</h3>
+      <p class="pin-sub">Create a new room or enter a friend's <b>room code</b>. Then send the link; everyone who opens it can chat in real time. Text, photo and voice all work.</p>
+      <form id="roomForm" autocomplete="off">
+        <div class="field"><label for="roomCode">Room code</label><input id="roomCode" type="text" maxlength="30" placeholder="e.g. hina-ali-4821" /></div>
+        <p id="roomError" class="auth-error"></p>
+        <div class="row-btns">
+          <button type="button" class="btn ghost full" id="roomRandom">🎲 New code</button>
+          <button type="submit" class="btn primary full">Join</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Group / community modal -->
+  <div id="groupModal" class="modal chat-modal hidden">
+    <div class="modal-card small">
+      <button class="close" id="groupClose" aria-label="Close">✕</button>
+      <h3 class="modal-title" id="groupTitle">👥 New group</h3>
+      <p class="pin-sub" id="groupHint"></p>
+      <form id="groupForm" autocomplete="off">
+        <div class="field"><label for="groupName">Name</label><input id="groupName" type="text" maxlength="40" placeholder="e.g. Friends Squad" /></div>
+        <div class="field"><label>Select members</label><div id="groupMembers" class="link-list"></div></div>
+        <p id="groupError" class="auth-error"></p>
+        <button type="submit" class="btn primary full" id="groupCreate">Create</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Status add modal -->
+  <div id="statusModal" class="modal chat-modal hidden">
+    <div class="modal-card small">
+      <button class="close" id="stClose" aria-label="Close">✕</button>
+      <h3 class="modal-title">✨ New status</h3>
+      <div id="stPreview" class="st-preview"></div>
+      <textarea id="stText" class="st-text" rows="2" maxlength="200" placeholder="Write something…"></textarea>
+      <div id="stColors" class="st-colors"></div>
+      <div class="field st-aud">
+        <label for="stAudience">Who can see this status?</label>
+        <select id="stAudience">
+          <option value="all">🌐 Everyone</option>
+          <option value="fav">⭐ Favourites only</option>
+          <option value="only">🔒 Only share with…</option>
+          <option value="except">🙈 Everyone except…</option>
+        </select>
+        <p class="pin-sub" id="stAudHint">All your contacts can see it.</p>
+        <div id="stPick" class="pick-list hidden"></div>
+      </div>
+      <div class="row-btns">
+        <button type="button" class="btn ghost full" id="stPhotoBtn">📷 Photo</button>
+        <button type="button" class="btn primary full" id="stPost">Post</button>
+      </div>
+      <input type="file" id="stFile" accept="image/*" hidden />
+      <p class="pin-sub" id="stImgName"></p>
+      <p id="stError" class="auth-error"></p>
+    </div>
+  </div>
+
+  <!-- Status viewer -->
+  <div id="statusViewer" class="sv hidden">
+    <div id="svBars" class="sv-bars"></div>
+    <div class="sv-top"><b id="svName"></b><small id="svTime"></small>
+      <button id="svDel" class="sv-btn hidden" title="Delete">🗑</button>
+      <button id="svClose" class="sv-btn" title="Close">✕</button></div>
+    <div id="svStage" class="sv-stage"><p id="svText"></p></div>
+    <div class="sv-foot">
+      <button id="svStats" class="sv-stats" type="button">👁 0 seen</button>
+      <div class="sv-acts">
+        <button id="svLike" class="sv-act" type="button" title="Like">🤍 0</button>
+        <button id="svShare" class="sv-act" type="button" title="Share status link">🔗 Link</button>
+      </div>
+    </div>
+    <div id="svList" class="sv-list hidden"></div>
+    <button id="svPrev" class="sv-nav l" aria-label="Previous"></button>
+    <button id="svNext" class="sv-nav r" aria-label="Next"></button>
+  </div>
+
+  <!-- QR modal -->
+  <div id="qrModal" class="modal chat-modal hidden">
+    <div class="modal-card small qr-card">
+      <button class="close" id="qrClose" aria-label="Close">✕</button>
+      <h3 class="modal-title">🔳 My QR code</h3>
+      <div id="qrBox" class="qr-box"></div>
+      <b id="qrName" class="qr-name"></b>
+      <p class="pin-sub">Your friend can scan this with their phone camera. The link opens and they can start chatting with you.</p>
+      <input id="qrLink" type="text" readonly class="qr-link" />
+      <div class="row-btns">
+        <button type="button" class="btn ghost full" id="qrCopy">📋 Copy</button>
+        <button type="button" class="btn primary full" id="qrShare">📤 Share</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Settings modal -->
+  <div id="settingsModal" class="modal chat-modal hidden">
+    <div class="modal-card small">
+      <button class="close" id="settingsClose" aria-label="Close">✕</button>
+      <h3 class="modal-title">⚙️ Settings</h3>
+      <div class="set-list">
+        <div class="set-sec">Profile</div>
+        <div class="set-row"><input id="setName" type="text" placeholder="Your name" /><button type="button" class="btn primary" id="setNameSave">Save</button></div>
+        <button type="button" class="set-item" id="setQr">🔳 <span>My QR code</span></button>
+        <div class="set-sec">Appearance</div>
+        <div class="set-row swatches" id="setThemes"></div>
+        <div class="set-row walls" id="setWalls"></div>
+        <div class="set-sec">Chats</div>
+        <button type="button" class="set-item" id="setSound">🔔 <span>Message sound</span><small id="setSoundVal"></small></button>
+        <button type="button" class="set-item" id="setFav">⭐ <span>Favourites</span></button>
+        <button type="button" class="set-item" id="setArch">🗂 <span>Archived chats</span></button>
+        <button type="button" class="set-item" id="setPin">🔒 <span>Change chat lock PIN</span></button>
+        <button type="button" class="set-item danger" id="setClearAll">🧹 <span>Clear messages of all chats</span></button>
+        <div class="set-sec">Account</div>
+        <button type="button" class="set-item" id="setReset">🔑 <span>Send password reset email</span></button>
+        <button type="button" class="set-item" id="setHelp">❓ <span>Help</span></button>
+        <button type="button" class="set-item danger" id="setLogout">⏻ <span>Logout</span></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Help modal -->
+  <div id="helpModal" class="modal chat-modal hidden">
+    <div class="modal-card small help-card">
+      <button class="close" id="helpClose" aria-label="Close">✕</button>
+      <h3 class="modal-title">❓ Help <small style="font-weight:400;color:var(--cmute);font-size:12px">· version v21</small></h3>
+      <details open><summary>🔗 How do I chat with a friend?</summary><p>Open a room and tap "🔗 Send link" at the top (or Invite). Your friend opens the link, logs in and joins the same room. Everyone chats in real time.</p></details>
+      
+      <details><summary>📞 Calls &amp; ✓✓ ticks?</summary><p>Tap 📞 (voice) or 📹 (video) at the top of a chat. A call card appears and everyone taps Join (opens in a new tab, powered by Jitsi Meet). One ✓ = delivered, blue ✓✓ = seen.</p></details>
+      <details><summary>✨ New tools (＋ button)?</summary><p>Tap ＋ next to the message box for Polls, Stickers, Location and Search in chat. In Settings → Appearance you can change the colour theme and the chat wallpaper.</p></details>
+      <details><summary>😀 React / Reply / Delete a message?</summary><p>Tap any message. Pick an emoji to react, or choose Reply, Copy or Delete (your own messages).</p></details>
+      <details><summary>👥 Group / 📢 Community?</summary><p>⋮ menu → New group or New community. In a community only the admin can send messages.</p></details>
+      <details><summary>✨ Status?</summary><p>Sidebar → Status → ＋. Text or a photo, visible to friends for 24 hours.</p></details>
+      <details><summary>🔒 Chat lock?</summary><p>Open a chat → tap 🔓 and create a PIN. The preview is hidden and the PIN is needed to open it.</p></details>
+      <details><summary>🗂 Archive / ⭐ Favourite?</summary><p>Use the 🗂 and ☆ buttons at the top of a chat. View them with the chips above the chat list.</p></details>
+      <details><summary>🧹 Clear / Delete?</summary><p>⋮ at the top of the chat → Clear chat or Delete. This only affects you.</p></details>
+      <details><summary>🤖 Glide-Chat AI?</summary><p>A helper built into the app. Ask it about the app, jokes, quotes, time or calculations. It is not an internet-connected AI.</p></details>
+      <details><summary>🔑 Forgot password?</summary><p>Use "Forgot password?" on the login screen or Settings → Password reset email.</p></details>
+    </div>
+  </div>
+
+  <!-- Invite friend modal -->
+  <div id="inviteModal" class="modal chat-modal hidden">
+    <div class="modal-card small">
+      <button class="close" id="inviteClose" aria-label="Close">✕</button>
+      <div class="invite-art">🎁</div>
+      <h3 class="modal-title" style="text-align:center">Invite friends to your room</h3>
+      <p class="muted" style="text-align:center">Send this <b>room link</b>. Your friend opens it, signs up / logs in and joins this room to chat in real time.</p>
+
+      <div class="link-box">
+        <input id="inviteLink" type="text" readonly />
+        <button type="button" class="btn primary" id="copyInvite">Copy</button>
+      </div>
+      <p id="inviteWarn" class="invite-warn hidden">⚠️ This is currently a link on your own computer (localhost). Deploy the app to Netlify first so the link works for everyone.</p>
+
+      <div class="share-grid">
+        <a id="shareWa" class="share-btn wa" target="_blank" rel="noopener">💬 WhatsApp</a>
+        <button type="button" id="shareNative" class="share-btn hidden">📤 Share</button>
+        <a id="shareMail" class="share-btn">✉️ Email</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Poll modal -->
+  <div id="pollModal" class="modal chat-modal hidden">
+    <div class="modal-card small">
+      <button class="close" id="pollClose" aria-label="Close">✕</button>
+      <h3 class="modal-title">📊 Create a poll</h3>
+      <form id="pollForm" autocomplete="off">
+        <div class="field"><label for="pollQ">Question</label><input id="pollQ" type="text" maxlength="120" placeholder="e.g. Where should we meet?" /></div>
+        <div id="pollOpts" class="poll-inputs">
+          <input type="text" maxlength="60" placeholder="Option 1" />
+          <input type="text" maxlength="60" placeholder="Option 2" />
+          <input type="text" maxlength="60" placeholder="Option 3 (optional)" />
+          <input type="text" maxlength="60" placeholder="Option 4 (optional)" />
+        </div>
+        <p id="pollError" class="auth-error"></p>
+        <button type="submit" class="btn primary full">Send poll</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Photo preview before sending -->
+  <div id="imgPrev" class="modal chat-modal hidden">
+    <div class="modal-card small ip-card">
+      <h3 class="modal-title">📷 Send photo</h3>
+      <img id="ipImg" class="ip-img" alt="preview" />
+      <input id="ipCaption" class="ip-cap" type="text" maxlength="300" placeholder="Add a caption (optional)…" />
+      <div class="row-btns">
+        <button type="button" class="btn ghost full" id="ipCancel">Cancel</button>
+        <button type="button" class="btn primary full" id="ipSend">Send ➤</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Photo viewer -->
+  <div id="lightbox" class="lightbox hidden"><img id="lbImg" alt="photo" /><span class="lb-x">✕</span></div>
+
+  <div id="toast" class="toast"></div>
+
+  <script src="ui.js"></script>
+  <script type="module" src="app.js?v=14"></script>
+</body>
+</html>
